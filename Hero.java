@@ -19,9 +19,9 @@ public class Hero extends Actor
     private int up = -15;
     private boolean cannotJump = false;
     private boolean lookingRight = true;
-    
+    //Corrected method below 
     /**
-     * Create constructor to scale the original and jumping images, mirror the 
+     * This method has the varibles for the original and jumping images, mirror the 
      * original image horizontally, and set the image of the hero to the original
      * variable
      */
@@ -47,7 +47,7 @@ public class Hero extends Actor
     }
     
     /**
-     * Add movement method here that will handle the movement right, left, and up
+     * This method will handle the movement right, left, and up
      * for the Hero
      * @param There are no parameters
      * @return There is nothing to return
@@ -98,7 +98,7 @@ public class Hero extends Actor
  
     // Add fall method here to handle the Hero's jumping and falling movement
     /**
-     * makes the hero fall back down after jumping
+     * Makes the hero fall back down after jumping
      * @param There are no parameters
      * @return There is nothing to return
      */
@@ -109,28 +109,28 @@ public class Hero extends Actor
         y = y + ySpeed;
     }
     
-    
+    // Corrected comment block below
     /**
-     * Add checkCollision method here that will check if we've landed on the top
-     * of an Enemy, which will increase the score; touched an Enemy otherwise, which
-     * will have us lose the game; touched a platform which will allow us to jump again;
-     * or fall
+     * This checkCollision method will check if the hero has landed on the top
+     * of an Enemy. If the Enemy hits the hero the game is over.
+     * @param There are no parameters
+     * @return There is nothing to return
      */
     
     private void checkCollision()
     {
-         ScrollerWorld world=(ScrollerWorld)getWorld();
-        
+         ScrollerWorld myWorld = (ScrollerWorld)getWorld();
+         
          if(getOneObjectAtOffset(0,getImage().getHeight()-15,Enemy.class)!= null)
          {
             getWorld().removeObject(getOneObjectAtOffset(0,getImage().getHeight()-15,Enemy.class));
-            world.addToScore();
+            myWorld.addToScore();
             y = smallUp;
             fall();
          }
          else if( isTouching(Enemy.class) )
          {
-             world.gameOver();
+             myWorld.gameOver();
          }
          else if(getOneObjectAtOffset(0,getImage().getHeight()-15,Platform.class)!= null)
          {

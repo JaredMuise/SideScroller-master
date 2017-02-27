@@ -49,11 +49,13 @@ public class ScrollerWorld extends World
          addObject(new Hero(), 30, getHeight() - 30);
     }
     
+    //corrected the comment block below
     /**
-     * Add an act method here that will handle adding platforms to the right side
+     * This Act adds platforms to the right side
      * of the world so that the hero doesn't run out of platform to run on. This
-     * method will also add Enemies to the world 0.67% of the time. The last thing
-     * the act method will need is a method call to the displayScore method
+     * method will also add Enemies to the world.
+     * @param There are no parameters
+     * @return There is nothing to return
      */
     public void act()
     {
@@ -72,6 +74,8 @@ public class ScrollerWorld extends World
         {
             addObject(  new Enemy(), 599, getHeight() - 27);
         }
+        
+        displayScore();
     }
     
     //Add gameOver method here that will display game over message and stop the scenario
